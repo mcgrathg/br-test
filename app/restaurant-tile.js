@@ -58,13 +58,7 @@ const RestaurantTile = ({ name, category, backgroundImageURL, ...rest }) => {
           <h3>{category}</h3>
         </TextWithBackground>
       </RestaurantHighlight>
-      {
-        <RestaurantDetailsWrapper
-          isExpanded={isExpanded}
-          backgroundImageURL={backgroundImageURL}
-          {...rest}
-        />
-      }
+      {<RestaurantDetailsWrapper isExpanded={isExpanded} {...rest} />}
     </>
   );
 };

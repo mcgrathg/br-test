@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
-import ImagePalette from 'react-image-palette';
 
 import RestaurantDetails from './restaurant-details';
 
-const WrapperRestaurantDetails = ({
-  isExpanded,
-  backgroundImageURL,
-  ...rest
-}) => {
+const WrapperRestaurantDetails = ({ isExpanded, ...rest }) => {
   const animationProps = useSpring({
     opacity: isExpanded ? 1 : 0,
     height: isExpanded ? 350 : 0,
@@ -17,17 +12,7 @@ const WrapperRestaurantDetails = ({
 
   return (
     <animated.div style={animationProps}>
-      <ImagePalette crossOrigin image={backgroundImageURL}>
-        {({ backgroundColor, color }) =>
-          isExpanded && (
-            <RestaurantDetails
-              backgroundColor={backgroundColor}
-              color={color}
-              {...rest}
-            />
-          )
-        }
-      </ImagePalette>
+      {isExpanded && <RestaurantDetails {...rest} />}
     </animated.div>
   );
 };

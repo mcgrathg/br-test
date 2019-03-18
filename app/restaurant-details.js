@@ -4,20 +4,15 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   height: 100%;
-  color: ${props => props.color};
-  background-color: ${props => props.backgroundColor};
 `;
 
 const Details = styled.div`
-  padding: 6px;
-
   .group {
     margin-bottom: 6px;
   }
 `;
 
 const MapWrapper = styled.div`
-  padding: 5px;
   height: 180px;
   width: 100%;
   display: flex;
@@ -32,12 +27,12 @@ const SocialLinks = React.lazy(() =>
   import(/* webpackChunkName: "restaurant-social-links" */ './restaurant-social-links'),
 );
 
-const RestaurantDetails = ({ backgroundColor, color, contact, location }) => {
+const RestaurantDetails = ({ contact, location }) => {
   const { formattedPhone, phone } = contact || {};
   const { formattedAddress = [] } = location || {};
 
   return (
-    <Wrapper backgroundColor={backgroundColor} color={color}>
+    <Wrapper>
       <MapWrapper>
         <React.Suspense fallback={<div>Loading Map...</div>}>
           <Map {...location} />
