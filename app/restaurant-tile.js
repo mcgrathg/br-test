@@ -6,7 +6,7 @@ import RestaurantDetailsWrapper from './wrapper-restaurant-details';
 import TileBackground from './assets/images/Cuts/cellGradientBackground@2x.png';
 
 const RestaurantHighlight = styled.div`
-  background: #34b379 ${props => `url(${props.backgroundImageURL})`};
+  background: ${props => `url(${props.backgroundImageURL})`};
   background-size: cover;
   background-position: center;
   width: 100%;

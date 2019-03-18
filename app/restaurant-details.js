@@ -62,22 +62,12 @@ const InlineDiv = styled.div`
   align-items: center;
 `;
 
-const RestaurantDetails = ({
-  contact,
-  location,
-  backgroundColor,
-  color,
-  alternativeColor,
-}) => {
+const RestaurantDetails = ({ contact, location, backgroundColor, color }) => {
   const { formattedPhone, phone, twitter, facebook } = contact || {};
   const { lat, lng, formattedAddress = [] } = location || {};
 
   return (
-    <Wrapper
-      backgroundColor={backgroundColor}
-      color={color}
-      alternativeColor={alternativeColor}
-    >
+    <Wrapper backgroundColor={backgroundColor} color={color}>
       <MapWrapper>
         <GoogleMap
           bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}

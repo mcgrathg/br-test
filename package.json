@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js --mode development --open",
     "build": "webpack --mode production",
-    "publish": "npm run build && surge ./build"
+    "publish": "npm run build && surge ./build --domain gwm-bottle-rocket-test.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,8 @@
     "dotenv-webpack": "^1.7.0",
     "file-loader": "^3.0.1",
     "google-map-react": "^1.1.2",
+    "preact": "^8.4.2",
+    "preact-compat": "^3.18.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",

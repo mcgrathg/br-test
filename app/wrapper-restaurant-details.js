@@ -18,12 +18,11 @@ const AnimatedRestaurantDetails = ({
   return (
     <animated.div style={animationProps}>
       <ImagePalette crossOrigin image={backgroundImageURL}>
-        {({ backgroundColor, color, alternativeColor }) =>
+        {({ backgroundColor, color }) =>
           isExpanded && (
             <RestaurantDetails
               backgroundColor={backgroundColor}
               color={color}
-              alternativeColor={alternativeColor}
               {...rest}
             />
           )
