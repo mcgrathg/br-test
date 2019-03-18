@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import AnimatedRestaurantDetails from './animated-restaurant-details';
+import RestaurantDetailsWrapper from './wrapper-restaurant-details';
 import TileBackground from './assets/images/Cuts/cellGradientBackground@2x.png';
 
 const RestaurantHighlight = styled.div`
-  background-image: ${props => `url(${props.backgroundImageURL})`};
+  background: #34b379 ${props => `url(${props.backgroundImageURL})`};
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -58,7 +58,13 @@ const RestaurantTile = ({ name, category, backgroundImageURL, ...rest }) => {
           <h3>{category}</h3>
         </TextWithBackground>
       </RestaurantHighlight>
-      {<AnimatedRestaurantDetails isExpanded={isExpanded} {...rest} />}
+      {
+        <RestaurantDetailsWrapper
+          isExpanded={isExpanded}
+          backgroundImageURL={backgroundImageURL}
+          {...rest}
+        />
+      }
     </>
   );
 };

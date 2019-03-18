@@ -7,13 +7,17 @@ import { SocialIcon } from 'react-social-icons';
 import mapStyle from './map-style.json';
 
 const Wrapper = styled.div`
-  border: 1px solid #34b379;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.color};
   height: 100%;
+
+  a {
+    color: ${props => props.color};
+  }
 `;
 
 const MapWrapper = styled.div`
+  padding: 5px;
   background-color: ${props => props.backgroundColor};
   color: ${props => props.color};
   height: 180px;
@@ -58,12 +62,22 @@ const InlineDiv = styled.div`
   align-items: center;
 `;
 
-const RestaurantDetails = props => {
-  const { formattedPhone, phone, twitter, facebook } = props.contact || {};
-  const { lat, lng, formattedAddress = [] } = props.location;
+const RestaurantDetails = ({
+  contact,
+  location,
+  backgroundColor,
+  color,
+  alternativeColor,
+}) => {
+  const { formattedPhone, phone, twitter, facebook } = contact || {};
+  const { lat, lng, formattedAddress = [] } = location || {};
 
   return (
-    <Wrapper>
+    <Wrapper
+      backgroundColor={backgroundColor}
+      color={color}
+      alternativeColor={alternativeColor}
+    >
       <MapWrapper>
         <GoogleMap
           bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
