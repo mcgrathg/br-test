@@ -44,10 +44,13 @@
     "axios": "^0.18.0",
     "cross-fetch": "^3.0.1",
     "css-loader": "^2.1.1",
+    "dotenv-webpack": "^1.7.0",
     "file-loader": "^3.0.1",
+    "google-map-react": "^1.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-social-icons": "^4.1.0",
     "sanitize.css": "^8.0.0",
     "style-loader": "^0.23.1",
     "styled-components": "^4.1.3"
