@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --config ./webpack/webpack.config.dev",
     "start:open": "npm run start -- --open",
     "build": "webpack --config ./webpack/webpack.config.prod",
-    "publish": "npm run build && surge ./build --domain gwm-bottle-rocket-test.surge.sh"
+    "publish": "npm run build && surge ./build --domain gwm-bottle-rocket-test-no-color.surge.sh"
   },
   "repository": {
     "type": "git",
