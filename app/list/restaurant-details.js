@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import GoogleMap from 'google-map-react';
 import { SocialIcon } from 'react-social-icons';
 
+import mapStyle from './map-style.json';
+
 const Wrapper = styled.div`
   background-color: ${props => props.backgroundColor};
   color: ${props => props.color};
@@ -12,11 +14,15 @@ const Wrapper = styled.div`
 `;
 
 const MapIndicator = styled.span`
-  height: 15px;
-  width: 15px;
-  background-color: #e91607;
+  height: 25px;
+  width: 25px;
+  background-color: rgba(233, 22, 7, 1);
   border-radius: 50%;
   display: inline-block;
+
+  padding: 3px;
+  border: solid 2px rgba(233, 22, 7, 0.5);
+  background-clip: content-box;
 `;
 
 const Details = styled.div`
@@ -56,7 +62,7 @@ const RestaurantDetails = props => {
           bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
           center={[lat, lng]}
           zoom={14}
-          options={{ styles: cleanCutStyle }}
+          options={{ styles: mapStyle }}
         >
           <MapIndicator lat={lat} lng={lng} />
         </GoogleMap>
@@ -98,59 +104,10 @@ const RestaurantDetails = props => {
             )}
           </SocialLinks>
         )}
-
-        <pre>
-          <code>{JSON.stringify(props, null, 2)}</code>
-        </pre>
       </Details>
     </>
   );
 };
-
-const cleanCutStyle = [
-  {
-    featureType: 'road',
-    elementType: 'geometry',
-    stylers: [
-      {
-        lightness: 100,
-      },
-      {
-        visibility: 'simplified',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry',
-    stylers: [
-      {
-        visibility: 'on',
-      },
-      {
-        color: '#C6E2FF',
-      },
-    ],
-  },
-  {
-    featureType: 'poi',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#C5E3BF',
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#D1D1B8',
-      },
-    ],
-  },
-];
 
 RestaurantDetails.propTypes = {};
 

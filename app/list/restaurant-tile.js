@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';
 
-import RestaurantDetails from './restaurant-details';
+import AnimatedRestaurantDetails from './animated-restaurant-details';
 
 const RestaurantHighlight = styled.div`
   background-image: ${props => `url(${props.backgroundImageURL})`};
@@ -59,7 +59,7 @@ const RestaurantTile = ({ name, category, backgroundImageURL, ...rest }) => {
           <h3>{category}</h3>
         </TextWithBackground>
       </RestaurantHighlight>
-      {isExpanded && <RestaurantDetails {...rest} />}
+      {<AnimatedRestaurantDetails isExpanded={isExpanded} {...rest} />}
     </>
   );
 };
