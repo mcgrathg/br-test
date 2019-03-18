@@ -6,11 +6,11 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'app/index.js'),
+    index: path.resolve(__dirname, '../app/index.js'),
   },
 
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, '../build'),
     filename: '[name].js',
   },
 
@@ -32,29 +32,18 @@ module.exports = {
     ],
   },
 
-  devServer: {
-    contentBase: './app',
-    hot: true,
-  },
-
-  devtool: 'eval-source-map',
-
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-    }),
-
     new Dotenv({
       path: './.env', // Path to .env file (this is the default)
       safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
 
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './app/index.html',
       chunks: ['index'],
       filename: 'index.html',
     }),
+
+    // new BundleAnalyzerPlugin(),
   ],
 };

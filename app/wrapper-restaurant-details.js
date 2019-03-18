@@ -5,7 +5,7 @@ import ImagePalette from 'react-image-palette';
 
 import RestaurantDetails from './restaurant-details';
 
-const AnimatedRestaurantDetails = ({
+const WrapperRestaurantDetails = ({
   isExpanded,
   backgroundImageURL,
   ...rest
@@ -32,8 +32,8 @@ const AnimatedRestaurantDetails = ({
   );
 };
 
-AnimatedRestaurantDetails.propTypes = {
+WrapperRestaurantDetails.propTypes = {
   isExpanded: PropTypes.bool.isRequired,
 };
 
-export default AnimatedRestaurantDetails;
+export default WrapperRestaurantDetails;
