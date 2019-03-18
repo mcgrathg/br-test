@@ -7,6 +7,13 @@ import { SocialIcon } from 'react-social-icons';
 import mapStyle from './map-style.json';
 
 const Wrapper = styled.div`
+  border: 1px solid #34b379;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100%;
+`;
+
+const MapWrapper = styled.div`
   background-color: ${props => props.backgroundColor};
   color: ${props => props.color};
   height: 180px;
@@ -56,8 +63,8 @@ const RestaurantDetails = props => {
   const { lat, lng, formattedAddress = [] } = props.location;
 
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      <MapWrapper>
         <GoogleMap
           bootstrapURLKeys={{ key: process.env.GOOGLE_API_KEY }}
           center={[lat, lng]}
@@ -66,7 +73,7 @@ const RestaurantDetails = props => {
         >
           <MapIndicator lat={lat} lng={lng} />
         </GoogleMap>
-      </Wrapper>
+      </MapWrapper>
       <Details>
         <div itemScope itemType="http://schema.org/LocalBusiness">
           <div className="group" itemProp="address">
@@ -105,10 +112,22 @@ const RestaurantDetails = props => {
           </SocialLinks>
         )}
       </Details>
-    </>
+    </Wrapper>
   );
 };
 
-RestaurantDetails.propTypes = {};
+RestaurantDetails.propTypes = {
+  contact: PropTypes.shape({
+    formattedPhone: PropTypes.string,
+    phone: PropTypes.string,
+    twitter: PropTypes.string,
+    facebook: PropTypes.string,
+  }),
+  location: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+    formattedAddress: PropTypes.arrayOf(PropTypes.string),
+  }),
+};
 
 export default RestaurantDetails;

@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';
-
 import AnimatedRestaurantDetails from './animated-restaurant-details';
+import TileBackground from './assets/images/Cuts/cellGradientBackground@2x.png';
 
 const RestaurantHighlight = styled.div`
   background-image: ${props => `url(${props.backgroundImageURL})`};

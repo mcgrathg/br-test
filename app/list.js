@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useDataApi from '../hooks/use-data-api';
-
+import useDataApi from './use-data-api';
 import RestaurantTile from './restaurant-tile';
 
 const Columns = styled.div`
