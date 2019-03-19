@@ -54,7 +54,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-image-palette": "^0.2.4",
     "react-social-icons": "^4.1.0",
     "react-spring": "^8.0.15",
     "sanitize.css": "^8.0.0",

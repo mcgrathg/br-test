@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import useDataApi from './use-data-api';
-import RestaurantTile from './restaurant-tile';
+import useDataApi from './hooks/use-data-api';
+import RestaurantTile from './restaurant/restaurant-tile';
+import { COLUMN_WIDTH } from './constants';
 
 const Columns = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const Columns = styled.div`
 
 const Column = styled.div`
   max-width: 100%;
-  width: 320px;
+  flex: 1 ${COLUMN_WIDTH}px;
 `;
 
 const List = () => {

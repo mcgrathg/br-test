@@ -23,6 +23,7 @@ const MapWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #e8e8e8;
 `;
 
 const Map = React.lazy(() =>

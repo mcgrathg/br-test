@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';
+import { COLUMN_WIDTH } from '../constants';
+
 import RestaurantDetailsWrapper from './wrapper-restaurant-details';
-import TileBackground from './assets/images/Cuts/cellGradientBackground@2x.png';
 
 const RestaurantHighlight = styled.div`
   background: ${props => `url(${props.backgroundImageURL})`};
@@ -18,11 +20,15 @@ const TextWithBackground = styled.div`
   background-repeat: repeat-x;
   height: 100%;
   width: 100%;
-  background-size: cover;
   display: flex;
   align-content: flex-end;
   padding: 6px 12px;
   flex-wrap: wrap;
+
+  background-size: contain;
+  @media (max-width: ${COLUMN_WIDTH}px) {
+    background-size: cover;
+  }
 
   &:hover {
     cursor: pointer;
@@ -58,13 +64,7 @@ const RestaurantTile = ({ name, category, backgroundImageURL, ...rest }) => {
           <h3>{category}</h3>
         </TextWithBackground>
       </RestaurantHighlight>
-      {
-        <RestaurantDetailsWrapper
-          isExpanded={isExpanded}
-          backgroundImageURL={backgroundImageURL}
-          {...rest}
-        />
-      }
+      {<RestaurantDetailsWrapper isExpanded={isExpanded} {...rest} />}
     </>
   );
 };
