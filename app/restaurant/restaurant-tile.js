@@ -103,6 +103,11 @@ const RestaurantTile = ({
           onClick={onLoveButtonClicked}
           className={`${isLoved ? 'active' : ''}`}
           aria-pressed={isLoved ? 'true' : 'false'}
+          title={
+            isLoved
+              ? 'Remove from your Loved Restaurants Group'
+              : 'Love this Restaurant!'
+          }
         >
           <FontAwesomeIcon icon={isLoved ? faHeart : faEmptyHeart} />
         </HeartButton>
