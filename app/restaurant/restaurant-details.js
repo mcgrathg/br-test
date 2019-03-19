@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   height: 100%;
-  color: ${props => props.color};
-  background-color: ${props => props.backgroundColor};
   display: flex;
   flex-direction: column;
   > * {
@@ -43,11 +41,11 @@ const RestaurantSocialLinks = React.lazy(() =>
   import(/* webpackChunkName: "restaurant-social-links" */ './restaurant-social-links'),
 );
 
-const RestaurantDetails = ({ backgroundColor, color, contact, location }) => {
+const RestaurantDetails = ({ contact, location }) => {
   const { formattedAddress = [] } = location || {};
 
   return (
-    <Wrapper backgroundColor={backgroundColor} color={color}>
+    <Wrapper>
       <MapWrapper>
         <React.Suspense fallback={<div>Loading Map...</div>}>
           <Map {...location} />

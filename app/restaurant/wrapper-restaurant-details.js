@@ -19,6 +19,7 @@ const WrapperRestaurantDetails = ({ isExpanded, contact, ...rest }) => {
 
 WrapperRestaurantDetails.propTypes = {
   isExpanded: PropTypes.bool.isRequired,
+  contact: PropTypes.object,
 };
 
 export default WrapperRestaurantDetails;

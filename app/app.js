@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Header from './header';
 import List from './list';
 
-const App = () => (
-  <>
-    <Header />
-    <List />
-  </>
-);
+const App = () => {
+  const [isLoveFiltered, setIsLoveFiltered] = useState(false);
+
+  return (
+    <>
+      <Header
+        isLoveFiltered={isLoveFiltered}
+        toggleLoveFilter={setIsLoveFiltered}
+      />
+      <List isLoveFiltered={isLoveFiltered} />
+    </>
+  );
+};
 
 export default App;

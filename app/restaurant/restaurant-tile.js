@@ -7,12 +7,32 @@ import { COLUMN_WIDTH } from '../constants';
 
 import RestaurantDetailsWrapper from './wrapper-restaurant-details';
 
+const HeartButton = styled.button`
+  font-size: 32px;
+  text-shadow: 2px 2px 3px black;
+  align-self: flex-end;
+  color: white;
+  padding: 7px;
+  margin: 7px;
+  background-color: transparent;
+  border: 0;
+  transition: all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+    transform: scale(1.2);
+  }
+`;
+
 const RestaurantHighlight = styled.div`
   background: ${props => `url(${props.backgroundImageURL})`};
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 180px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TextWithBackground = styled.div`
@@ -24,6 +44,7 @@ const TextWithBackground = styled.div`
   align-content: flex-end;
   padding: 6px 12px;
   flex-wrap: wrap;
+  flex: 1;
 
   background-size: contain;
   @media (max-width: ${COLUMN_WIDTH}px) {
@@ -52,27 +73,37 @@ const TextWithBackground = styled.div`
   }
 `;
 
-const RestaurantTile = ({ name, category, backgroundImageURL, ...rest }) => {
+const RestaurantTile = ({
+  name,
+  category,
+  backgroundImageURL,
+  onLoveButtonClicked,
+  isLoved,
+  ...rest
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const lovedStr = isLoved ? '❤' : '♡';
 
   return (
     <>
-      <RestaurantHighlight
-        backgroundImageURL={backgroundImageURL}
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <TextWithBackground>
+      <RestaurantHighlight backgroundImageURL={backgroundImageURL}>
+        <HeartButton onClick={onLoveButtonClicked}>{lovedStr}</HeartButton>
+        <TextWithBackground onClick={() => setIsExpanded(!isExpanded)}>
           <h2>{name}</h2>
           <h3>{category}</h3>
         </TextWithBackground>
       </RestaurantHighlight>
-      {<RestaurantDetailsWrapper isExpanded={isExpanded} {...rest} />}
+      <RestaurantDetailsWrapper isExpanded={isExpanded} {...rest} />
     </>
   );
 };
 
 RestaurantTile.propTypes = {
+  name: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   backgroundImageURL: PropTypes.string.isRequired,
+  onLoveButtonClicked: PropTypes.func.isRequired,
+  isLoved: PropTypes.bool.isRequired,
 };
 
 export default RestaurantTile;

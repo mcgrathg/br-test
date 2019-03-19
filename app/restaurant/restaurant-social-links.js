@@ -81,6 +81,8 @@ const RestaurantSocialLinks = ({
 RestaurantSocialLinks.propTypes = {
   twitter: PropTypes.string,
   facebook: PropTypes.string,
+  phone: PropTypes.string,
+  formattedPhone: PropTypes.string,
 };
 
 export default RestaurantSocialLinks;
