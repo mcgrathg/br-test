@@ -72,11 +72,13 @@ const List = ({ isLoveFiltered }) => {
 
       {isLoading ? (
         <div>Loading ...</div>
-      ) : (
+      ) : column0.length || column1.length ? (
         <Columns>
           <Column>{column0}</Column>
           <Column>{column1}</Column>
         </Columns>
+      ) : (
+        isLoveFiltered && <h2>Try Turning Off Your Love Filter</h2>
       )}
     </Wrapper>
   );

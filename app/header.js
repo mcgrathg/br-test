@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/pro-solid-svg-icons';
+import { faHeart as faEmptyHeart } from '@fortawesome/pro-light-svg-icons';
 
 const MapIconSrc = './assets/images/Cuts/icon_map@2x.png';
 
@@ -20,17 +23,21 @@ const Wrapper = styled.div`
 
 const LovedButton = styled.button`
   position: absolute;
-  right: 3px;
+  right: 0;
   font-size: 46px;
   background-color: transparent;
   border: 0;
   color: white;
+  &.active {
+    color: red;
+  }
+
   transition: all 0.2s;
 
   &:hover {
     cursor: pointer;
     color: red;
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 `;
 
@@ -40,22 +47,27 @@ const MapIcon = styled.img`
   height: 32px;
 `;
 
-const Header = ({ isLoveFiltered, toggleLoveFilter }) => {
-  const lovedStr = isLoveFiltered ? '❤' : '♡';
-  return (
-    <Wrapper>
-      <h1>Lunch Tyme</h1>
-      <LovedButton
-        title="Limit to your Loved restaurants"
-        className={`${isLoveFiltered ? 'active' : ''}`}
-        onClick={() => toggleLoveFilter(!isLoveFiltered)}
-      >
-        {lovedStr}
-      </LovedButton>
-      <MapIcon src={MapIconSrc} />
-    </Wrapper>
-  );
-};
+const Header = ({ isLoveFiltered, toggleLoveFilter }) => (
+  <Wrapper>
+    <h1>Lunch Tyme</h1>
+    <LovedButton
+      title={
+        isLoveFiltered
+          ? 'Show all Restaurants'
+          : 'Limit to your Loved restaurants'
+      }
+      className={`${isLoveFiltered ? 'active' : ''}`}
+      onClick={() => toggleLoveFilter(!isLoveFiltered)}
+      aria-pressed={isLoveFiltered ? 'true' : 'false'}
+    >
+      <FontAwesomeIcon
+        className="shadow"
+        icon={isLoveFiltered ? faHeart : faEmptyHeart}
+      />
+    </LovedButton>
+    <MapIcon src={MapIconSrc} />
+  </Wrapper>
+);
 
 Header.propTypes = {
   isLoveFiltered: PropTypes.bool,

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/pro-solid-svg-icons';
+import { faHeart as faEmptyHeart } from '@fortawesome/pro-light-svg-icons';
 
-import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';
 import { COLUMN_WIDTH } from '../constants';
+import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';
 
 import RestaurantDetailsWrapper from './wrapper-restaurant-details';
 
@@ -12,6 +15,9 @@ const HeartButton = styled.button`
   text-shadow: 2px 2px 3px black;
   align-self: flex-end;
   color: white;
+  &.active {
+    color: red;
+  }
   padding: 7px;
   margin: 7px;
   background-color: transparent;
@@ -22,6 +28,13 @@ const HeartButton = styled.button`
     cursor: pointer;
     color: red;
     transform: scale(1.2);
+  }
+
+  svg {
+    filter: drop-shadow(1px 1px 0.5mm red);
+  }
+  &.active svg {
+    filter: drop-shadow(0px 0px 5px white);
   }
 `;
 
@@ -82,12 +95,17 @@ const RestaurantTile = ({
   ...rest
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const lovedStr = isLoved ? '❤' : '♡';
 
   return (
     <>
       <RestaurantHighlight backgroundImageURL={backgroundImageURL}>
-        <HeartButton onClick={onLoveButtonClicked}>{lovedStr}</HeartButton>
+        <HeartButton
+          onClick={onLoveButtonClicked}
+          className={`${isLoved ? 'active' : ''}`}
+          aria-pressed={isLoved ? 'true' : 'false'}
+        >
+          <FontAwesomeIcon icon={isLoved ? faHeart : faEmptyHeart} />
+        </HeartButton>
         <TextWithBackground onClick={() => setIsExpanded(!isExpanded)}>
           <h2>{name}</h2>
           <h3>{category}</h3>

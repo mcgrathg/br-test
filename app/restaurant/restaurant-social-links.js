@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { SocialIcon } from 'react-social-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/pro-solid-svg-icons';
 
 const Phone = styled.a`
   border-radius: 50%;
@@ -51,7 +53,7 @@ const RestaurantSocialLinks = ({
       {!!phone && (
         <InlineDiv itemProp="telephone">
           <Phone href={`tel:${phone}`} title="Phone">
-            {String.fromCharCode(9742)}
+            <FontAwesomeIcon icon={faPhone} />
           </Phone>
         </InlineDiv>
       )}
