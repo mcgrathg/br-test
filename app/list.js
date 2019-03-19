@@ -5,17 +5,24 @@ import useDataApi from './hooks/use-data-api';
 import RestaurantTile from './restaurant/restaurant-tile';
 import { COLUMN_WIDTH } from './constants';
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Columns = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100vw;
   justify-content: center;
+  max-width: 900px;
 `;
 
 const Column = styled.div`
   max-width: 100%;
-  flex: 1 ${COLUMN_WIDTH}px;
+  flex: 1 0 ${COLUMN_WIDTH}px;
 `;
 
 const List = () => {
@@ -23,7 +30,6 @@ const List = () => {
     'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json',
     { restaurants: [] },
   );
-
   const column0 = [];
   const column1 = [];
 
@@ -37,7 +43,7 @@ const List = () => {
   });
 
   return (
-    <>
+    <Wrapper>
       {isError && <div>Something went wrong ...</div>}
 
       {isLoading ? (
@@ -48,7 +54,7 @@ const List = () => {
           <Column>{column1}</Column>
         </Columns>
       )}
-    </>
+    </Wrapper>
   );
 };
 

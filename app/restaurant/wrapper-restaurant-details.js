@@ -4,15 +4,15 @@ import { useSpring, animated } from 'react-spring';
 
 import RestaurantDetails from './restaurant-details';
 
-const WrapperRestaurantDetails = ({ isExpanded, ...rest }) => {
+const WrapperRestaurantDetails = ({ isExpanded, contact, ...rest }) => {
   const animationProps = useSpring({
     opacity: isExpanded ? 1 : 0,
-    height: isExpanded ? 350 : 0,
+    height: isExpanded ? 322 - (!!contact ? 0 : 62) : 0,
   });
 
   return (
     <animated.div style={animationProps}>
-      {isExpanded && <RestaurantDetails {...rest} />}
+      {isExpanded && <RestaurantDetails contact={contact} {...rest} />}
     </animated.div>
   );
 };

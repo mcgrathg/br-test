@@ -3,9 +3,28 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { SocialIcon } from 'react-social-icons';
 
+const Phone = styled.a`
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 8px;
+  background: #f56c63;
+  color: white;
+  text-decoration: none;
+  font: 30px 'Avenir Next', sans-serif;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const SocialLinks = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
   div {
     width: 60px;
+    height: 50px;
   }
   a {
     transition: transform 0.2s;
@@ -21,9 +40,22 @@ const InlineDiv = styled.div`
   align-items: center;
 `;
 
-const RestaurantSocialLinks = ({ facebook, twitter }) =>
-  !!facebook || !!twitter ? (
+const RestaurantSocialLinks = ({
+  facebook,
+  twitter,
+  formattedPhone,
+  phone = formattedPhone,
+}) =>
+  !!facebook || !!twitter || !!phone ? (
     <SocialLinks className="group">
+      {!!phone && (
+        <InlineDiv itemProp="telephone">
+          <Phone href={`tel:${phone}`} title="Phone">
+            {String.fromCharCode(9742)}
+          </Phone>
+        </InlineDiv>
+      )}
+
       {!!facebook && (
         <InlineDiv>
           <SocialIcon

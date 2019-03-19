@@ -6,19 +6,27 @@ const Wrapper = styled.div`
   height: 100%;
   color: ${props => props.color};
   background-color: ${props => props.backgroundColor};
+  display: flex;
+  flex-direction: column;
+  > * {
+    flex: 1;
+  }
 `;
 
 const Details = styled.div`
   padding: 6px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
 
-  .group {
-    margin-bottom: 6px;
+  > * {
+    flex: 1 100%;
   }
 `;
 
 const MapWrapper = styled.div`
   padding: 5px;
-  height: 180px;
+  flex: 0 180px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -29,12 +37,11 @@ const MapWrapper = styled.div`
 const Map = React.lazy(() =>
   import(/* webpackChunkName: "restaurant-map" */ './restaurant-map.js'),
 );
-const SocialLinks = React.lazy(() =>
+const RestaurantSocialLinks = React.lazy(() =>
   import(/* webpackChunkName: "restaurant-social-links" */ './restaurant-social-links'),
 );
 
 const RestaurantDetails = ({ backgroundColor, color, contact, location }) => {
-  const { formattedPhone, phone } = contact || {};
   const { formattedAddress = [] } = location || {};
 
   return (
@@ -45,8 +52,8 @@ const RestaurantDetails = ({ backgroundColor, color, contact, location }) => {
         </React.Suspense>
       </MapWrapper>
 
-      <Details>
-        <div itemScope itemType="http://schema.org/LocalBusiness">
+      <div itemScope itemType="http://schema.org/LocalBusiness">
+        <Details>
           {formattedAddress && formattedAddress.length > 0 && (
             <div className="group" itemProp="address">
               {formattedAddress.map(addr => (
@@ -55,17 +62,11 @@ const RestaurantDetails = ({ backgroundColor, color, contact, location }) => {
             </div>
           )}
 
-          {!!phone && (
-            <div className="group" itemProp="telephone">
-              <a href={`tel:${phone}`}>{formattedPhone}</a>
-            </div>
-          )}
-        </div>
-
-        <React.Suspense fallback={<div>Loading Social Links...</div>}>
-          <SocialLinks {...contact} />
-        </React.Suspense>
-      </Details>
+          <React.Suspense fallback={<div>Loading Social Links...</div>}>
+            <RestaurantSocialLinks {...contact} />
+          </React.Suspense>
+        </Details>
+      </div>
     </Wrapper>
   );
 };
