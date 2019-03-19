@@ -7,13 +7,13 @@ const App = () => {
   const [isLoveFiltered, setIsLoveFiltered] = useState(false);
 
   return (
-    <>
+    <main>
       <Header
         isLoveFiltered={isLoveFiltered}
         toggleLoveFilter={setIsLoveFiltered}
       />
       <List isLoveFiltered={isLoveFiltered} />
-    </>
+    </main>
   );
 };
 

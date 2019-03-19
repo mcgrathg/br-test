@@ -65,7 +65,7 @@ const Header = ({ isLoveFiltered, toggleLoveFilter }) => (
         icon={isLoveFiltered ? faHeart : faEmptyHeart}
       />
     </LovedButton>
-    <MapIcon src={MapIconSrc} />
+    <MapIcon src={MapIconSrc} alt="Map" />
   </Wrapper>
 );
 
