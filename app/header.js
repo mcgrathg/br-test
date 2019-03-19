@@ -7,13 +7,13 @@ import { faHeart as faEmptyHeart } from '@fortawesome/pro-light-svg-icons';
 
 const MapIconSrc = './assets/images/Cuts/icon_map@2x.png';
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   background-color: #43e895;
   height: 60px;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
   h1 {
     font-family: 'AvenirNext-DemiBold', sans-serif;
     font-size: 17px;
@@ -65,7 +65,7 @@ const Header = ({ isLoveFiltered, toggleLoveFilter }) => (
         icon={isLoveFiltered ? faHeart : faEmptyHeart}
       />
     </LovedButton>
-    <MapIcon src={MapIconSrc} />
+    <MapIcon src={MapIconSrc} alt="Map" />
   </Wrapper>
 );
 

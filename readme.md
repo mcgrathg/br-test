@@ -6,11 +6,11 @@ The intent of this coding test is to assess your ability to work with requiremen
 
 We do not specify a particular framework or set of libraries to use for this project as we feel that could create an uneven playing field for our candidates depending on what they have the most experience with. There are a set of web technologies that are core to our solutions so we would like for your implementation to make use of any of the following technologies:
 
-1 Angular or React
-2 Redux
-3 ES6, Babel
-4 Typ-script
-5 Grunt, Gulp, Webpack
+1. Angular or React
+2. Redux
+3. ES6, Babel
+4. Typescript
+5. Grunt, Gulp, Webpack
 
 ## Requirements
 

@@ -97,7 +97,7 @@ const RestaurantTile = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <>
+    <section>
       <RestaurantHighlight backgroundImageURL={backgroundImageURL}>
         <HeartButton
           onClick={onLoveButtonClicked}
@@ -117,7 +117,7 @@ const RestaurantTile = ({
         </TextWithBackground>
       </RestaurantHighlight>
       <RestaurantDetailsWrapper isExpanded={isExpanded} {...rest} />
-    </>
+    </section>
   );
 };
 
