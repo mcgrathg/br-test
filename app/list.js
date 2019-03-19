@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import useDataApi from './hooks/use-data-api';
-import RestaurantTile from './restaurant/restaurant-tile';
 import { COLUMN_WIDTH } from './constants';
+
+const RestaurantTile = React.lazy(() =>
+  import(/* webpackChunkName: "restaurant-tile" */ './restaurant/restaurant-tile'),
+);
 
 const Wrapper = styled.div`
   display: flex;
@@ -71,11 +74,13 @@ const List = ({ isLoveFiltered }) => {
       {isError && <div>Something went wrong ...</div>}
 
       {isLoading ? (
-        <div>Loading ...</div>
+        <div>Loading Restaurants...</div>
       ) : column0.length || column1.length ? (
         <Columns>
-          <Column>{column0}</Column>
-          <Column>{column1}</Column>
+          <React.Suspense fallback={<div>Loading Restaurants...</div>}>
+            <Column>{column0}</Column>
+            <Column>{column1}</Column>
+          </React.Suspense>
         </Columns>
       ) : (
         isLoveFiltered && <h2>Try Turning Off Your Love Filter</h2>
