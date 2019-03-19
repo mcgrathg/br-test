@@ -42,6 +42,7 @@ module.exports = {
       template: './app/index.html',
       chunks: ['index'],
       filename: 'index.html',
+      favicon: './app/favicon.ico',
     }),
 
     // new BundleAnalyzerPlugin(),

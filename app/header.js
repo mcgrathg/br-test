@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MapIconSrc = './assets/images/Cuts/icon_map@2x.png';
@@ -24,13 +23,11 @@ const MapIcon = styled.img`
   height: 32px;
 `;
 
-const Header = props => (
+const Header = () => (
   <Wrapper>
     <h1>Lunch Tyme</h1>
     <MapIcon src={MapIconSrc} />
   </Wrapper>
 );
-
-Header.propTypes = {};
 
 export default Header;
