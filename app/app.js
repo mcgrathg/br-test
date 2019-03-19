@@ -1,12 +1,12 @@
 import React from 'react';
 
-import GlobalStyle from './assets/styles/global-style';
+import Header from './header';
 import List from './list';
 
 const App = () => (
   <>
+    <Header />
     <List />
-    <GlobalStyle />
   </>
 );
 

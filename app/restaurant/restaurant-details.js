@@ -18,6 +18,8 @@ const Details = styled.div`
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Avenir Next', sans-serif;
+  color: #2a2a2a;
 
   > * {
     flex: 1 100%;

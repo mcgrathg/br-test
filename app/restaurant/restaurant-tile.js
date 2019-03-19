@@ -36,6 +36,7 @@ const TextWithBackground = styled.div`
 
   h2 {
     font-family: 'AvenirNext-DemiBold', sans-serif;
+    font-size: 16px;
     color: white;
     margin: 0 0 6px 0;
     flex-basis: 100%;
@@ -43,6 +44,7 @@ const TextWithBackground = styled.div`
 
   h3 {
     font-family: 'Avenir Next', sans-serif;
+    font-size: 12px;
     color: white;
     flex-basis: 100%;
     margin: 0;
