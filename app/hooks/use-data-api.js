@@ -39,6 +39,10 @@ const useDataApi = (initialUrl, initialData) => {
   useEffect(() => {
     const { CancelToken } = axios;
     const source = CancelToken.source();
+
+    dispatch({
+      type: 'FETCH_INIT',
+    });
     axios(url, { cancelToken: source.token })
       .then(result => {
         dispatch({
