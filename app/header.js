@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/pro-solid-svg-icons';
-import { faHeart as faEmptyHeart } from '@fortawesome/pro-light-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faEmptyHeart } from '@fortawesome/free-regular-svg-icons';
 
 const MapIconSrc = './assets/images/Cuts/icon_map@2x.png';
 

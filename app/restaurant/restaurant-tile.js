@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/pro-solid-svg-icons';
-import { faHeart as faEmptyHeart } from '@fortawesome/pro-light-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faEmptyHeart } from '@fortawesome/free-regular-svg-icons';
 
 import { COLUMN_WIDTH } from '../constants';
 import TileBackground from '../assets/images/Cuts/cellGradientBackground@2x.png';

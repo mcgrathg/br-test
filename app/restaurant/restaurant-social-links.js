@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { SocialIcon } from 'react-social-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/pro-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Phone = styled.a`
   border-radius: 50%;
