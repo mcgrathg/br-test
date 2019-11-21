@@ -24,15 +24,20 @@ const HeartButton = styled.button`
   border: 0;
   transition: all 0.2s;
 
+  svg {
+    filter: drop-shadow(1px 1px 0.5mm red);
+  }
+
   &:hover {
     cursor: pointer;
     color: red;
     transform: scale(1.2);
+
+    svg {
+      filter: drop-shadow(1px 1px 0.5mm white);
+    }
   }
 
-  svg {
-    filter: drop-shadow(1px 1px 0.5mm red);
-  }
   &.active svg {
     filter: drop-shadow(0px 0px 5px white);
   }
